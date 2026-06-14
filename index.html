@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GQ1BRYK17S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GQ1BRYK17S');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Precio Smart — Calculadora de Precios para Emprendedores Bolivia</title>
+
+  <!-- SEO Básico -->
+  <meta name="description" content="Calcula el precio de venta de tu producto con IVA boliviano (13%) incluido. Gratis para emprendedores. Ingresa tus costos y obtén el precio justo al instante." />
+  <meta name="keywords" content="calculadora de precios Bolivia, cómo calcular precio de venta, precio con IVA Bolivia, calculadora costos emprendedor, precio justo producto, emprendimiento Bolivia" />
+  <meta name="author" content="Precio Smart" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://jose55urdi.github.io/Precio-Smart/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jose55urdi.github.io/Precio-Smart/" />
+  <meta property="og:title" content="Precio Smart — Calculadora de Precios para Emprendedores Bolivia" />
+  <meta property="og:description" content="¿Cuánto cobrar por tu producto? Calcula el precio de venta ideal con IVA boliviano incluido. Gratis para emprendedores." />
+  <meta property="og:locale" content="es_BO" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Precio Smart — Calculadora de Precios para Emprendedores Bolivia" />
+  <meta name="twitter:description" content="¿Cuánto cobrar por tu producto? Calcula el precio de venta ideal con IVA boliviano incluido. Gratis." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #ffffff; --bg2: #f7f8fa; --bg3: #f0f2f5;
+      --text: #111111; --text2: #555555; --text3: #888888;
+      --border: rgba(0,0,0,0.10); --border2: rgba(0,0,0,0.18);
+      --blue: #1a6ef5; --blue-dark: #1559d6; --blue-light: #e8f0fe;
+      --blue-text: #1a4db5; --radius: 8px; --radius-lg: 12px;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg3); color: var(--text); min-height: 100vh; }
+    nav { background: var(--bg); border-bottom: 0.5px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+    .logo { font-family: 'DM Serif Display', serif; font-size: 20px; color: var(--text); display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .logo-dot { width: 8px; height: 8px; background: var(--blue); border-radius: 50%; }
+    .nav-links { display: flex; gap: 0; }
+    .nav-btn { background: none; border: none; padding: 8px 16px; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text2); cursor: pointer; border-radius: var(--radius); transition: background 0.15s, color 0.15s; }
+    .nav-btn:hover, .nav-btn.active { background: var(--bg2); color: var(--text); }
+    .nav-btn.active { font-weight: 500; }
+    .hero { background: var(--bg); border-bottom: 0.5px solid var(--border); padding: 2.5rem 2rem 2rem; text-align: center; }
+    .hero h1 { font-family: 'DM Serif Display', serif; font-size: 32px; font-weight: 400; margin-bottom: 8px; }
+    .hero p { font-size: 15px; color: var(--text2); max-width: 480px; margin: 0 auto; line-height: 1.6; }
+    .tabs { display: flex; gap: 4px; background: var(--bg2); border-radius: var(--radius-lg); padding: 4px; width: fit-content; margin: 1.5rem auto 0; border: 0.5px solid var(--border); }
+    .tab { background: none; border: none; padding: 8px 20px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; color: var(--text2); cursor: pointer; border-radius: 8px; transition: all 0.15s; }
+    .tab.active { background: var(--bg); color: var(--text); border: 0.5px solid var(--border); }
+    .content { max-width: 720px; margin: 2rem auto; padding: 0 1rem; }
+    .page { display: none; }
+    .page.visible { display: block; }
+    .card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1rem; }
+    .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+    .card-icon { width: 32px; height: 32px; border-radius: var(--radius); background: var(--blue-light); display: flex; align-items: center; justify-content: center; color: var(--blue); font-size: 16px; flex-shrink: 0; }
+    .card-title { font-size: 14px; font-weight: 500; }
+    .card-sub { font-size: 12px; color: var(--text2); }
+    .badge-free { margin-left: auto; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; background: var(--blue-light); color: var(--blue-text); white-space: nowrap; }
+    .badge-pro { margin-left: auto; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; background: #fef3c7; color: #92400e; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    @media (max-width: 520px) { .row { grid-template-columns: 1fr; } }
+    .field label { display: block; font-size: 12px; color: var(--text2); margin-bottom: 5px; font-weight: 500; }
+    .prefix-wrap { position: relative; }
+    .prefix { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--text3); pointer-events: none; }
+    input[type="text"], input[type="number"], input[type="email"] { width: 100%; height: 38px; padding: 0 12px; font-family: 'DM Sans', sans-serif; font-size: 14px; border: 0.5px solid var(--border2); border-radius: var(--radius); background: var(--bg); color: var(--text); transition: border-color 0.15s, box-shadow 0.15s; appearance: none; }
+    input:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,110,245,0.1); }
+    .prefix-wrap input { padding-left: 36px; }
+    .pro-field { position: relative; }
+    .pro-field input { opacity: 0.5; pointer-events: none; background: var(--bg2); }
+    .lock-icon { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--text3); }
+    .iva-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg2); border-radius: var(--radius); margin-top: 12px; border: 0.5px solid var(--border); }
+    .iva-label { font-size: 13px; color: var(--text2); display: flex; align-items: center; gap: 6px; }
+    .iva-val { font-size: 13px; font-weight: 500; color: var(--blue); }
+    .iva-toggle { display: flex; align-items: center; gap: 10px; padding: 10px 14px; background: var(--bg2); border-radius: var(--radius); margin-top: 12px; border: 0.5px solid var(--border); }
+    .iva-toggle label { font-size: 13px; color: var(--text2); cursor: pointer; margin: 0; }
+    .iva-toggle input[type="checkbox"] { width: 16px; height: 16px; cursor: pointer; accent-color: var(--blue); }
+    .divider { height: 0.5px; background: var(--border); margin: 1.25rem 0; }
+    .btn-primary { width: 100%; height: 44px; background: var(--blue); color: white; border: none; border-radius: var(--radius); font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s, transform 0.1s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-primary:hover { background: var(--blue-dark); }
+    .btn-primary:active { transform: scale(0.99); }
+    .results { display: none; margin-top: 1rem; }
+    .results.visible { display: block; }
+    .result-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 1rem; }
+    @media (max-width: 480px) { .result-grid { grid-template-columns: 1fr 1fr; } }
+    .metric { background: var(--bg2); border-radius: var(--radius); padding: 14px; text-align: center; border: 0.5px solid var(--border); }
+    .metric-label { font-size: 11px; color: var(--text2); font-weight: 500; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .metric-val { font-size: 20px; font-weight: 500; }
+    .metric-val.highlight { color: var(--blue); }
+    .breakdown { background: var(--bg2); border-radius: var(--radius); padding: 1rem 1.25rem; border: 0.5px solid var(--border); }
+    .breakdown-title { font-size: 11px; font-weight: 500; color: var(--text2); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .br-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; font-size: 13px; border-bottom: 0.5px solid var(--border); }
+    .br-row:last-child { border-bottom: none; }
+    .br-row.total { font-weight: 500; font-size: 14px; padding-top: 10px; margin-top: 4px; }
+    .br-row.total .br-val { color: var(--blue); }
+    .br-label { color: var(--text2); }
+    .br-val { color: var(--text); font-weight: 500; }
+    .pro-banner { background: var(--blue-light); border: 0.5px solid #b8d0fc; border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 1rem; text-align: center; }
+    .pro-banner h3 { font-size: 16px; font-weight: 500; color: var(--blue-text); margin-bottom: 6px; }
+    .pro-banner p { font-size: 13px; color: var(--blue); margin-bottom: 14px; line-height: 1.5; }
+    .pro-features { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .feat-pill { font-size: 12px; padding: 4px 12px; background: white; border: 0.5px solid #b8d0fc; border-radius: 20px; color: var(--blue-text); font-weight: 500; display: inline-flex; align-items: center; gap: 4px; }
+    .btn-upgrade { background: var(--blue); color: white; border: none; border-radius: var(--radius); padding: 10px 28px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.15s; text-decoration: none; display: inline-block; }
+    .btn-upgrade:hover { background: var(--blue-dark); }
+    .lm-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem 2rem; text-align: center; margin-bottom: 1rem; }
+    .lm-icon { width: 52px; height: 52px; background: var(--blue-light); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 24px; color: var(--blue); }
+    .lm-card h2 { font-family: 'DM Serif Display', serif; font-size: 24px; font-weight: 400; margin-bottom: 8px; }
+    .lm-sub { font-size: 14px; color: var(--text2); max-width: 400px; margin: 0 auto 1.5rem; line-height: 1.6; }
+    .lm-benefits { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .lm-benefit { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text2); }
+    .lm-benefit i { color: var(--blue); font-size: 15px; }
+    .lm-note { font-size: 11px; color: var(--text3); margin-top: 12px; }
+    .testimonials { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 1rem; }
+    @media (max-width: 480px) { .testimonials { grid-template-columns: 1fr; } }
+    .testi { background: var(--bg2); border-radius: var(--radius); padding: 1rem; text-align: left; border: 0.5px solid var(--border); }
+    .testi-text { font-size: 13px; color: var(--text2); line-height: 1.5; margin-bottom: 8px; font-style: italic; }
+    .testi-author { font-size: 12px; font-weight: 500; }
+
+    /* SIDEBAR */
+    .sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.3); z-index:200; }
+    .sidebar-overlay.open { display:block; }
+    .sidebar { position:fixed; left:-280px; top:0; width:280px; height:100vh; background:var(--bg); border-right:0.5px solid var(--border); z-index:300; transition:left 0.25s ease; display:flex; flex-direction:column; }
+    .sidebar.open { left:0; }
+    .sidebar-header { padding:1.25rem 1.5rem; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .sidebar-logo { font-family:'DM Serif Display',serif; font-size:18px; display:flex; align-items:center; gap:8px; }
+    .sidebar-close { background:none; border:none; font-size:20px; cursor:pointer; color:var(--text2); padding:4px; border-radius:var(--radius); }
+    .sidebar-close:hover { background:var(--bg2); }
+    .sidebar-menu { padding:1rem 0; flex:1; }
+    .sidebar-item { display:flex; align-items:center; gap:12px; padding:12px 1.5rem; font-size:14px; color:var(--text2); cursor:pointer; transition:background 0.15s; border:none; background:none; width:100%; text-align:left; font-family:'DM Sans',sans-serif; }
+    .sidebar-item:hover { background:var(--bg2); color:var(--text); }
+    .sidebar-item.active { background:var(--blue-light); color:var(--blue); font-weight:500; }
+    .sidebar-item i { font-size:18px; }
+    .sidebar-section { font-size:11px; font-weight:500; color:var(--text3); text-transform:uppercase; letter-spacing:0.06em; padding:8px 1.5rem 4px; }
+    .menu-btn { background:none; border:none; width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer; border-radius:var(--radius); color:var(--text2); font-size:20px; transition:background 0.15s; }
+    .menu-btn:hover { background:var(--bg2); }
+
+    /* FORO PAGE */
+    #nav-foro { display:none; }
+    .foro-wrap { max-width:720px; margin:2rem auto; padding:0 1rem; }
+    .foro-header { background:var(--bg); border:0.5px solid var(--border); border-radius:var(--radius-lg); padding:1.5rem; margin-bottom:1rem; }
+    .foro-header h2 { font-family:'DM Serif Display',serif; font-size:22px; font-weight:400; margin-bottom:4px; }
+    .foro-header p { font-size:13px; color:var(--text2); }
+
+    footer { text-align: center; padding: 2rem 1rem; font-size: 12px; color: var(--text3); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <button class="menu-btn" onclick="toggleSidebar()"><i class="ti ti-menu-2"></i></button>
+    <a class="logo" href="#">
+      <div class="logo-dot"></div>
+      Precio Smart
+    </a>
+    <div class="nav-links">
+      <button class="nav-btn active" onclick="showNav(this,'calc')">Calculadora</button>
+      <button class="nav-btn" onclick="showNav(this,'info')">Más info</button>
+    </div>
+  </nav>
+
+  <div id="nav-calc">
+    <div class="hero">
+      <h1>Calcula el precio justo de tu producto</h1>
+      <p>Ingresa tus costos y el margen que deseas ganar. Precio Smart calcula el IVA boliviano (13%) y te da el precio de venta ideal.</p>
+      <div class="tabs">
+        <button class="tab active" onclick="showTab(this,'basico')">Básico — Gratis</button>
+        <button class="tab" onclick="showTab(this,'pro')">Pro — Avanzado</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <div id="tab-basico" class="page visible">
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon"><i class="ti ti-box" aria-hidden="true"></i></div>
+            <div>
+              <div class="card-title">Tu producto</div>
+              <div class="card-sub">Información básica</div>
+            </div>
+            <span class="badge-free">Gratis</span>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Nombre del producto</label>
+              <input type="text" id="prod-name" placeholder="Ej: Mantequilla de maní" />
+            </div>
+            <div class="field">
+              <label>Unidades por lote</label>
+              <input type="number" id="units" placeholder="Ej: 7" min="1" value="1" oninput="calcAuto()" />
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon"><i class="ti ti-currency-dollar" aria-hidden="true"></i></div>
+            <div>
+              <div class="card-title">Costos del producto</div>
+              <div class="card-sub">Todo lo que gastas para producirlo (en Bs.)</div>
+            </div>
+            <span class="badge-free">Gratis</span>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Materia prima</label>
+              <div class="prefix-wrap">
+                <span class="prefix">Bs.</span>
+                <input type="number" id="c-materia" placeholder="0.00" min="0" step="0.01" oninput="calcAuto()" />
+              </div>
+            </div>
+            <div class="field">
+              <label>Transporte</label>
+              <div class="prefix-wrap">
+                <span class="prefix">Bs.</span>
+                <input type="number" id="c-transporte" placeholder="0.00" min="0" step="0.01" oninput="calcAuto()" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Mano de obra</label>
+              <div class="prefix-wrap">
+                <span class="prefix">Bs.</span>
+                <input type="number" id="c-mano" placeholder="0.00" min="0" step="0.01" oninput="calcAuto()" />
+              </div>
+            </div>
+            <div class="field">
+              <label>Embalaje / Packaging</label>
+              <div class="prefix-wrap">
+                <span class="prefix">Bs.</span>
+                <input type="number" id="c-embalaje" placeholder="0.00" min="0" step="0.01" oninput="calcAuto()" />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Electricidad / Servicios</label>
+              <div class="prefix-wrap">
+                <span class="prefix">Bs.</span>
+                <input type="number" id="c-electro" placeholder="0.00" min="0" step="0.01" oninput="calcAuto()" />
+              </div>
+            </div>
+            <div class="field">
+              <label>Gastos administrativos</label>
+              <div class="prefix-wrap">
+                <span class="prefix">Bs.</span>
+                <input type="number" id="c-admin" placeholder="0.00" min="0" step="0.01" oninput="calcAuto()" />
+              </div>
+            </div>
+          </div>
+
+          <div class="iva-toggle">
+            <input type="checkbox" id="aplicar-iva" checked onchange="calcAuto()" />
+            <label for="aplicar-iva">Aplicar IVA (13%) — desmarcar si eres comerciante informal</label>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon"><i class="ti ti-percentage" aria-hidden="true"></i></div>
+            <div>
+              <div class="card-title">Ganancia deseada</div>
+              <div class="card-sub">¿Cuánto quieres ganar sobre tus costos?</div>
+            </div>
+            <span class="badge-free">Gratis</span>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label>Margen de ganancia (%)</label>
+              <div class="prefix-wrap">
+                <span class="prefix">%</span>
+                <input type="number" id="margen" placeholder="30" min="0" max="500" step="1" value="30" oninput="calcAuto()" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <button class="btn-primary" onclick="calcular()">
+            <i class="ti ti-calculator" aria-hidden="true"></i>
+            Calcular precio de venta
+          </button>
+
+          <div class="results" id="resultados">
+            <div class="divider"></div>
+            <div class="result-grid">
+              <div class="metric">
+                <div class="metric-label">Costo del lote</div>
+                <div class="metric-val" id="res-costo">Bs. 0</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Costo por unidad</div>
+                <div class="metric-val" id="res-unidad">Bs. 0</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Precio de venta lote</div>
+                <div class="metric-val highlight" id="res-venta">Bs. 0</div>
+              </div>
+              <div class="metric">
+                <div class="metric-label">Precio venta / unidad</div>
+                <div class="metric-val highlight" id="res-venta-unidad">Bs. 0</div>
+              </div>
+            </div>
+            <div class="breakdown">
+              <div class="breakdown-title">Desglose completo</div>
+              <div class="br-row"><span class="br-label">Materia prima</span><span class="br-val" id="br-materia">Bs. 0.00</span></div>
+              <div class="br-row"><span class="br-label">Transporte</span><span class="br-val" id="br-transporte">Bs. 0.00</span></div>
+              <div class="br-row"><span class="br-label">Mano de obra</span><span class="br-val" id="br-mano">Bs. 0.00</span></div>
+              <div class="br-row"><span class="br-label">Embalaje</span><span class="br-val" id="br-embalaje">Bs. 0.00</span></div>
+              <div class="br-row"><span class="br-label">Electricidad</span><span class="br-val" id="br-electro">Bs. 0.00</span></div>
+              <div class="br-row"><span class="br-label">Gastos admin.</span><span class="br-val" id="br-admin">Bs. 0.00</span></div>
+              <div class="br-row"><span class="br-label">Subtotal costos</span><span class="br-val" id="br-sub">Bs. 0.00</span></div>
+              <div class="br-row"><span class="br-label">IVA (13%)</span><span class="br-val" id="br-iva">Bs. 0.00</span></div>
+              <div class="br-row"><span class="br-label">Ganancia (<span id="br-pct">30</span>%)</span><span class="br-val" id="br-ganancia">Bs. 0.00</span></div>
+              <div class="br-row total"><span class="br-label">Precio sugerido de venta</span><span class="br-val" id="br-total">Bs. 0.00</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pro-banner">
+          <h3>⭐ Desbloquea Precio Smart Pro</h3>
+          <p>Accede a costos adicionales personalizados, comparador de productos,<br>exportación a PDF y más herramientas para tu emprendimiento.</p>
+          <div class="pro-features">
+            <span class="feat-pill">+ Costos personalizados</span>
+            <span class="feat-pill">↑ Exportar a PDF</span>
+            <span class="feat-pill">◈ Comparar productos</span>
+            <span class="feat-pill">↗ Análisis de márgenes</span>
+          </div>
+          <a href="#info" class="btn-upgrade" onclick="goInfo()">Ver planes Pro →</a>
+        </div>
+
+      </div>
+
+      <div id="tab-pro" class="page">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-icon" style="background:#fef3c7;color:#92400e;"><i class="ti ti-lock" aria-hidden="true"></i></div>
+            <div>
+              <div class="card-title">Costos avanzados</div>
+              <div class="card-sub">Disponible con suscripción Pro</div>
+            </div>
+            <span class="badge-pro"><i class="ti ti-lock" style="font-size:11px"></i> Pro</span>
+          </div>
+          <div class="row">
+            <div class="field pro-field">
+              <label>Depreciación de equipo</label>
+              <div class="prefix-wrap"><span class="prefix">Bs.</span><input type="number" placeholder="0.00" disabled /><span class="lock-icon"><i class="ti ti-lock"></i></span></div>
+            </div>
+            <div class="field pro-field">
+              <label>Alquiler del espacio</label>
+              <div class="prefix-wrap"><span class="prefix">Bs.</span><input type="number" placeholder="0.00" disabled /><span class="lock-icon"><i class="ti ti-lock"></i></span></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field pro-field">
+              <label>Marketing / Publicidad</label>
+              <div class="prefix-wrap"><span class="prefix">Bs.</span><input type="number" placeholder="0.00" disabled /><span class="lock-icon"><i class="ti ti-lock"></i></span></div>
+            </div>
+            <div class="field pro-field">
+              <label>Costo financiero / interés</label>
+              <div class="prefix-wrap"><span class="prefix">Bs.</span><input type="number" placeholder="0.00" disabled /><span class="lock-icon"><i class="ti ti-lock"></i></span></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field pro-field">
+              <label>Costo personalizado 1</label>
+              <div class="prefix-wrap"><span class="prefix">Bs.</span><input type="number" placeholder="0.00" disabled /><span class="lock-icon"><i class="ti ti-lock"></i></span></div>
+            </div>
+            <div class="field pro-field">
+              <label>Costo personalizado 2</label>
+              <div class="prefix-wrap"><span class="prefix">Bs.</span><input type="number" placeholder="0.00" disabled /><span class="lock-icon"><i class="ti ti-lock"></i></span></div>
+            </div>
+          </div>
+          <div style="text-align:center;padding:1rem 0 0;">
+            <a href="#info" class="btn-upgrade" onclick="goInfo()">Suscribirme a Pro →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="nav-info" style="display:none;">
+    <div class="content" style="padding-top:2rem;">
+      <div class="lm-card">
+        <div class="lm-icon"><i class="ti ti-mail" aria-hidden="true"></i></div>
+        <h2>Aprende a fijar precios como un experto</h2>
+        <p class="lm-sub">Recibe gratis nuestra guía <strong>«Los 5 errores que cometen los emprendedores al poner precios»</strong> y empieza a vender con más ganancia.</p>
+        <div class="lm-benefits">
+          <div class="lm-benefit"><i class="ti ti-check" aria-hidden="true"></i> Guía PDF gratuita</div>
+          <div class="lm-benefit"><i class="ti ti-check" aria-hidden="true"></i> Tips de pricing para tu negocio</div>
+          <div class="lm-benefit"><i class="ti ti-check" aria-hidden="true"></i> Acceso anticipado a Pro</div>
+        </div>
+        <div style="max-width:480px; margin:0 auto;">
+          <iframe
+            src="https://18a4a80c.sibforms.com/serve/MUIFAGuF8X58D9iN1bd4vPySLv62FpMhpBg_Wby2ccy8ZrTHROiDCoHPvhztmKkhKS3xJUl82cK56_hhC00TopyLWWpP_KQSImd2DtgQLQGFz2hs2B6ZS52p5_uV8c_y0pVVWTng9Kw9EIN0UnlQYFcWIfoggiLj91HxiB-y_upE0NGcDv6dRMo8D62d7qED9GRFboQzpeKIyzRP1A=="
+            frameborder="0" scrolling="auto" allowfullscreen
+            style="display:block; width:100%; height:300px; border-radius:12px; border:0.5px solid #e0e5ec;"
+          ></iframe>
+          <p class="lm-note">Sin spam. Puedes darte de baja cuando quieras.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon"><i class="ti ti-users" aria-hidden="true"></i></div>
+          <div><div class="card-title">Lo que dicen los emprendedores</div></div>
+        </div>
+        <div class="testimonials">
+          <div class="testi">
+            <p class="testi-text">"Antes ponía precios a ojo. Con Precio Smart descubrí que estaba perdiendo Bs. 8 por producto."</p>
+            <div class="testi-author">— Carla M., repostería, La Paz</div>
+          </div>
+          <div class="testi">
+            <p class="testi-text">"Super fácil de usar, en 5 minutos ya tenía el precio de mis velas calculado con IVA y todo."</p>
+            <div class="testi-author">— Diego R., artesanías, Cochabamba</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2026 Precio Smart · Hecho para emprendedores bolivianos</footer>
+
+  <script>
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebar-overlay').classList.toggle('open');
+    }
+
+    function goForo() {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('nav-calc').style.display = 'none';
+      document.getElementById('nav-info').style.display = 'none';
+      document.getElementById('nav-foro').style.display = 'block';
+    }
+
+    function showNav(btn, page) {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('nav-calc').style.display = page === 'calc' ? 'block' : 'none';
+      document.getElementById('nav-info').style.display = page === 'info' ? 'block' : 'none';
+      document.getElementById('nav-foro').style.display = 'none';
+    }
+
+    function goInfo() {
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.nav-btn')[1].classList.add('active');
+      document.getElementById('nav-calc').style.display = 'none';
+      document.getElementById('nav-info').style.display = 'block';
+    }
+
+    function showTab(btn, tab) {
+      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-basico').classList.toggle('visible', tab === 'basico');
+      document.getElementById('tab-pro').classList.toggle('visible', tab === 'pro');
+    }
+
+    function getVal(id) { return parseFloat(document.getElementById(id).value) || 0; }
+    function fmt(n) { return 'Bs. ' + n.toFixed(2); }
+
+    function calcAuto() {
+      if (document.getElementById('resultados').classList.contains('visible')) calcular();
+    }
+
+    function calcular() {
+      const materia    = getVal('c-materia');
+      const transporte = getVal('c-transporte');
+      const mano       = getVal('c-mano');
+      const embalaje   = getVal('c-embalaje');
+      const electro    = getVal('c-electro');
+      const admin      = getVal('c-admin');
+      const units      = Math.max(1, getVal('units'));
+      const margen     = getVal('margen');
+      const aplicaIVA  = document.getElementById('aplicar-iva').checked;
+
+      const subtotal   = materia + transporte + mano + embalaje + electro + admin;
+      const iva        = aplicaIVA ? subtotal * 0.13 : 0;
+      const costoLote  = subtotal + iva;
+      const ganancia   = costoLote * (margen / 100);
+      const total      = costoLote + ganancia;
+      const costoPorUnidad = costoLote / units;
+      const ventaPorUnidad = total / units;
+
+      document.getElementById('res-costo').textContent    = fmt(costoLote);
+      document.getElementById('res-unidad').textContent   = fmt(costoPorUnidad);
+      document.getElementById('res-venta').textContent    = fmt(total);
+      document.getElementById('res-venta-unidad').textContent = fmt(ventaPorUnidad);
+      document.getElementById('br-materia').textContent   = fmt(materia);
+      document.getElementById('br-transporte').textContent = fmt(transporte);
+      document.getElementById('br-mano').textContent      = fmt(mano);
+      document.getElementById('br-embalaje').textContent  = fmt(embalaje);
+      document.getElementById('br-electro').textContent   = fmt(electro);
+      document.getElementById('br-admin').textContent     = fmt(admin);
+      document.getElementById('br-sub').textContent       = fmt(subtotal);
+      document.getElementById('br-iva').textContent       = aplicaIVA ? fmt(iva) : 'No aplica';
+      document.getElementById('br-pct').textContent       = Math.round(margen);
+      document.getElementById('br-ganancia').textContent  = fmt(ganancia);
+      document.getElementById('br-total').textContent     = fmt(total);
+
+      document.getElementById('resultados').classList.add('visible');
+    }
+  </script>
+
+  <!-- SIDEBAR OVERLAY -->
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo"><div class="logo-dot"></div> Precio Smart</div>
+      <button class="sidebar-close" onclick="toggleSidebar()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="sidebar-menu">
+      <div class="sidebar-section">Mi cuenta</div>
+      <button class="sidebar-item" onclick="toggleSidebar()">
+        <i class="ti ti-user"></i> Perfil
+      </button>
+      <div class="sidebar-section" style="margin-top:8px;">Comunidad</div>
+      <button class="sidebar-item" onclick="goForo(); toggleSidebar()">
+        <i class="ti ti-messages"></i> Foro para emprendedores
+      </button>
+    </div>
+  </div>
+
+  <!-- FORO PAGE -->
+  <div id="nav-foro">
+    <div class="foro-wrap">
+      <div class="foro-header">
+        <h2>💬 Foro para emprendedores</h2>
+        <p>Comparte tips, preguntas y experiencias sobre costos y precios con otros emprendedores bolivianos.</p>
+      </div>
+      <div class="card">
+        <div id="disqus_thread"></div>
+        <script>
+          var disqus_config = function () {
+            this.page.url = 'https://jose55urdi.github.io/Precio-Smart/';
+            this.page.identifier = 'foro-precio-smart';
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            s.src = 'https://precio-smart.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Activa JavaScript para ver los comentarios.</noscript>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
